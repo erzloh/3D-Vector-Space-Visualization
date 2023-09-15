@@ -16,6 +16,7 @@ function VectorSpace() {
 
 	// Initialize array of matrices
 	this.matrices = [];
+	this.finalMat;
 
 	this.addVector = function(x, y, z) {
 		this.vectors.initial.push(new Vec3(x, y, z));
@@ -67,40 +68,29 @@ function VectorSpace() {
 		drawLineBetweenPoints(this.points.final[3], this.points.final[7], `rgba(0, 0, 0, ${opacity})`);
 	}
 
-	this.transform = function(m) {
-		// Transform the vectors
-		for (let i = 0; i < this.vectors.final.length; i++) {
-			this.vectors.final[i].multMat(m);
-		}
-
-		// Transform the points
-		for (let i = 0; i < this.points.final.length; i++) {
-			this.points.final[i].multMat(m);
-		}
-	}
-
 	this.addMatrix = function(matArr) {
 		this.matrices.push(new Mat3(matArr[0], matArr[1], matArr[2], matArr[3], matArr[4], matArr[5], matArr[6], matArr[7], matArr[8]));
 	}
 
 	this.applyMatrices = function() {
-		// // Reset the final vectors to the initial vectors
-		// for (let i = 0; i < this.vectors.final.length; i++) {
-		// 	this.vectors.final[i].x = this.vectors.initial[i].x;
-		// 	this.vectors.final[i].y = this.vectors.initial[i].y;
-		// 	this.vectors.final[i].z = this.vectors.initial[i].z;
-		// }
-
-		// // Reset the final points to the initial points
-		// for (let i = 0; i < this.points.final.length; i++) {
-		// 	this.points.final[i].x = this.points.initial[i].x;
-		// 	this.points.final[i].y = this.points.initial[i].y;
-		// 	this.points.final[i].z = this.points.initial[i].z;
-		// }
-
-		// Apply the matrices to the vectors and points
+		// Multuply all the matrices together
 		for (let i = 0; i < this.matrices.length; i++) {
-			this.transform(this.matrices[i]);
+			if (i === 0) {
+				this.finalMat = this.matrices[i];
+			}
+			else {
+				this.finalMat = this.matrices[i].matMult(this.finalMat);
+			}
+		}
+
+		// Transform the vectors
+		for (let i = 0; i < this.vectors.final.length; i++) {
+			this.vectors.final[i].multMat(this.finalMat);
+		}
+
+		// Transform the points
+		for (let i = 0; i < this.points.final.length; i++) {
+			this.points.final[i].multMat(this.finalMat);
 		}
 	}
 
@@ -209,4 +199,27 @@ function Mat3(a, b, c, d, e, f ,g, h, i) {
 	this.g = g;
 	this.h = h;
 	this.i = i;
+
+	this.matMult = function(m) {
+		let a = this.a * m.a + this.b * m.d + this.c * m.g;
+		let b = this.a * m.b + this.b * m.e + this.c * m.h;
+		let c = this.a * m.c + this.b * m.f + this.c * m.i;
+		let d = this.d * m.a + this.e * m.d + this.f * m.g;
+		let e = this.d * m.b + this.e * m.e + this.f * m.h;
+		let f = this.d * m.c + this.e * m.f + this.f * m.i;
+		let g = this.g * m.a + this.h * m.d + this.i * m.g;
+		let h = this.g * m.b + this.h * m.e + this.i * m.h;
+		let i = this.g * m.c + this.h * m.f + this.i * m.i;
+		return new Mat3(a, b, c, d, e, f, g, h, i);
+	}
+}
+
+// Define Cube class
+function Cube(origin, r, color) {
+	this.origin = origin;
+	this.r = r;
+	this.color = color;
+	this.vertices = [];
+	this.edges = [];
+
 }

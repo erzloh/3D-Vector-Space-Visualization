@@ -77,15 +77,10 @@ vs.applyMatrices();
 // Draw the vector space
 vs.draw(1);
 
-// ------------------------------ Event listeners ------------------------------
-canvas.addEventListener('click', function() {
-	// c.clearRect(0, 0, canvas.width, canvas.height);
-	// vs.draw(1);
-});
-
 // ------------------------------ Animation loop ------------------------------
 let angle = 0;
 let rotationLength = 360; // In frames
+let rotate = false;
 
 function animate() {
 	requestAnimationFrame(animate);
@@ -97,13 +92,28 @@ function animate() {
 	}
 	vs.reset();
 
-	vs.addMatrix(getXAxisRotMat(angle));
-	vs.addMatrix(getYAxisRotMat(angle));
-	vs.addMatrix(getZAxisRotMat(angle));
+	if (rotate)
+	{
+		vs.addMatrix(getXAxisRotMat(angle));
+		vs.addMatrix(getYAxisRotMat(angle));
+		vs.addMatrix(getZAxisRotMat(angle));
+	}
 	// vs.addMatrix(ericMat);
 	vs.addMatrix(orthogonalProjectionMat);
 
 	vs.applyMatrices();
-	vs.draw(0.5);
+	vs.draw(0.7);
 }
 animate();
+
+// ------------------------------ Event listeners ------------------------------
+const rotateButton = document.getElementById('rotate-button');
+rotateButton.addEventListener('click', function() {
+	rotate = !rotate;
+	if (rotate) {
+		rotateButton.innerHTML = 'stop';
+	}
+	else {
+		rotateButton.innerHTML = 'start';
+	}
+});
