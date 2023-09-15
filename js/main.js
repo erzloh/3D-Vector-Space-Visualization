@@ -68,7 +68,7 @@ const orthogonalProjectionMat = [	1, 0, 0,
 // vs.addMatrix(xAxisRotMat);
 // vs.addMatrix(yAxisRotMat);
 // vs.addMatrix(zAxisRotMat);
-vs.addMatrix(ericMat);
+// vs.addMatrix(ericMat);
 vs.addMatrix(orthogonalProjectionMat);
 
 // Apply transformations
@@ -86,22 +86,21 @@ function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, canvas.width, canvas.height);
 
-	angle += 2 * Math.PI / rotationLength;
-	if (angle >= 2 * Math.PI) {
-		angle = 0;
-	}
-	vs.reset();
-
 	if (rotate)
 	{
+		angle += 2 * Math.PI / rotationLength;
+		if (angle >= 2 * Math.PI) {
+			angle = 0;
+		}
+		vs.reset();
 		vs.addMatrix(getXAxisRotMat(angle));
 		vs.addMatrix(getYAxisRotMat(angle));
 		vs.addMatrix(getZAxisRotMat(angle));
+		vs.addMatrix(orthogonalProjectionMat);
+		vs.applyMatrices();
 	}
 	// vs.addMatrix(ericMat);
-	vs.addMatrix(orthogonalProjectionMat);
 
-	vs.applyMatrices();
 	vs.draw(0.7);
 }
 animate();

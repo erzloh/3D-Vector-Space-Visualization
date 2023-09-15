@@ -10,13 +10,15 @@ body {
 
 h1 {
 	font-weight: 400;
-	margin: 64px
+	margin: 64px;
+	animation: fadeIn 1s ease-in-out;
 }
 
 canvas {
 	/* border: 1px solid #000; */
 	display: block;
 	border-radius: 6px;
+	animation: fadeIn 2s ease-in-out;
 }
 
 #buttons {
@@ -27,6 +29,7 @@ canvas {
 	align-items: center;
 	flex-wrap: wrap;
 	width: 800px;
+	animation: fadeIn 3s ease-in-out;
 }
 
 button {
@@ -63,4 +66,14 @@ footer {
 	color: #aba9a9;
 	font-size: 14px;
 	text-align: center;
+	animation: fadeIn 4s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
