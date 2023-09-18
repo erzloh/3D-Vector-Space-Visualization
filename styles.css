@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-	font-weight: 400;
+	font-weight: 200;
 	margin: 64px;
 	animation: fadeIn 1s ease-in-out;
 }

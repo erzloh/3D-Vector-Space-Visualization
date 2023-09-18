@@ -18,6 +18,9 @@ function VectorSpace() {
 	this.matrices = [];
 	this.finalMat;
 
+	// Initilize array of cubes
+	this.cubes = [];
+
 	this.addVector = function(x, y, z) {
 		this.vectors.initial.push(new Vec3(x, y, z));
 		this.vectors.transition.push(new Vec3(x, y, z));
@@ -29,6 +32,14 @@ function VectorSpace() {
 		this.points.initial.push(new Vec3(x, y, z));
 		this.points.transition.push(new Vec3(x, y, z));
 		this.points.final.push(new Vec3(x, y, z));
+	}
+
+	this.addMatrix = function(matArr) {
+		this.matrices.push(new Mat3(matArr[0], matArr[1], matArr[2], matArr[3], matArr[4], matArr[5], matArr[6], matArr[7], matArr[8]));
+	}
+
+	this.addCube = function(origin, r, color) {
+		this.cubes.push(new Cube(origin, r, color));
 	}
 
 	this.draw = function(opacity) {
@@ -66,10 +77,11 @@ function VectorSpace() {
 		drawLineBetweenPoints(this.points.final[1], this.points.final[5], `rgba(0, 0, 0, ${opacity})`);
 		drawLineBetweenPoints(this.points.final[2], this.points.final[6], `rgba(0, 0, 0, ${opacity})`);
 		drawLineBetweenPoints(this.points.final[3], this.points.final[7], `rgba(0, 0, 0, ${opacity})`);
-	}
 
-	this.addMatrix = function(matArr) {
-		this.matrices.push(new Mat3(matArr[0], matArr[1], matArr[2], matArr[3], matArr[4], matArr[5], matArr[6], matArr[7], matArr[8]));
+		// Draw the cubes
+		 for (let i = 0; i < this.cubes.length; i++) {
+			this.cubes[i].draw();
+		 }
 	}
 
 	this.applyMatrices = function() {
@@ -91,6 +103,13 @@ function VectorSpace() {
 		// Transform the points
 		for (let i = 0; i < this.points.final.length; i++) {
 			this.points.final[i].multMat(this.finalMat);
+		}
+
+		// Transform the cubes
+		for (let i = 0; i < this.cubes.length; i++) {
+			for (let j = 0; j < this.cubes[i].vertices.final.length; j++) {
+				this.cubes[i].vertices.final[j].multMat(this.finalMat);
+			}
 		}
 	}
 
@@ -121,6 +140,15 @@ function VectorSpace() {
 			this.points.final[i].x = this.points.initial[i].x;
 			this.points.final[i].y = this.points.initial[i].y;
 			this.points.final[i].z = this.points.initial[i].z;
+		}
+
+		// Reset the cubes
+		for (let i = 0; i < this.cubes.length; i++) {
+			for (let j = 0; j < this.cubes[i].vertices.final.length; j++) {
+				this.cubes[i].vertices.final[j].x = this.cubes[i].vertices.initial[j].x;
+				this.cubes[i].vertices.final[j].y = this.cubes[i].vertices.initial[j].y;
+				this.cubes[i].vertices.final[j].z = this.cubes[i].vertices.initial[j].z;
+			}
 		}
 
 		// Reset the matrices
@@ -219,7 +247,46 @@ function Cube(origin, r, color) {
 	this.origin = origin;
 	this.r = r;
 	this.color = color;
-	this.vertices = [];
-	this.edges = [];
+	this.vertices = {
+		initial: [],
+		final: []
+	};
 
+	this.addVertex = function(x, y, z) {
+		this.vertices.initial.push(new Vec3(x, y, z));
+		this.vertices.final.push(new Vec3(x, y, z));
+	}
+
+	// Add the vertices
+	this.addVertex(origin.x + r, origin.y + r, origin.z + r);
+	this.addVertex(origin.x + r, origin.y - r, origin.z + r);
+	this.addVertex(origin.x - r, origin.y - r, origin.z + r);
+	this.addVertex(origin.x - r, origin.y + r, origin.z + r);
+	this.addVertex(origin.x + r, origin.y + r, origin.z - r);
+	this.addVertex(origin.x + r, origin.y - r, origin.z - r);
+	this.addVertex(origin.x - r, origin.y - r, origin.z - r);
+	this.addVertex(origin.x - r, origin.y + r, origin.z - r);
+
+	this.draw = function() {
+		// Draw the final vertices
+		// for (let i = 0; i < this.vertices.final.length; i++) {
+		// 	drawVector(this.vertices.final[i], this.color);
+		// }
+
+		// Draw lines between the vertices
+		drawLineBetweenPoints(this.vertices.final[0], this.vertices.final[1], this.color);
+		drawLineBetweenPoints(this.vertices.final[1], this.vertices.final[2], this.color);
+		drawLineBetweenPoints(this.vertices.final[2], this.vertices.final[3], this.color);
+		drawLineBetweenPoints(this.vertices.final[3], this.vertices.final[0], this.color);
+
+		drawLineBetweenPoints(this.vertices.final[4], this.vertices.final[5], this.color);
+		drawLineBetweenPoints(this.vertices.final[5], this.vertices.final[6], this.color);
+		drawLineBetweenPoints(this.vertices.final[6], this.vertices.final[7], this.color);
+		drawLineBetweenPoints(this.vertices.final[7], this.vertices.final[4], this.color);
+
+		drawLineBetweenPoints(this.vertices.final[0], this.vertices.final[4], this.color);
+		drawLineBetweenPoints(this.vertices.final[1], this.vertices.final[5], this.color);
+		drawLineBetweenPoints(this.vertices.final[2], this.vertices.final[6], this.color);
+		drawLineBetweenPoints(this.vertices.final[3], this.vertices.final[7], this.color);
+	}		
 }

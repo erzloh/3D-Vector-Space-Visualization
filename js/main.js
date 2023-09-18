@@ -17,6 +17,9 @@ vs.addPoint(50, -50, -50);
 vs.addPoint(-50, -50, -50);
 vs.addPoint(-50, 50, -50);
 
+// Add cubes
+vs.addCube(new Vec3(0, 0, 0), 100, 'black');
+
 // Add matrices
 
 const ericMat = [	1, 0, -Math.sqrt(2) / 2,
