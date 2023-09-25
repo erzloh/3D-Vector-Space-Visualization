@@ -21,6 +21,9 @@ function VectorSpace() {
 	// Initilize array of cubes
 	this.cubes = [];
 
+	// Initialize array of fdf objects
+	this.fdfObjs = [];
+
 	this.addVector = function(x, y, z) {
 		this.vectors.initial.push(new Vec3(x, y, z));
 		this.vectors.transition.push(new Vec3(x, y, z));
@@ -40,6 +43,10 @@ function VectorSpace() {
 
 	this.addCube = function(origin, r, color) {
 		this.cubes.push(new Cube(origin, r, color));
+	}
+
+	this.addFDF = function(fdfStr) {
+		this.fdfObjs.push(new FDFObj(fdfStr));
 	}
 
 	this.draw = function(opacity) {
@@ -62,25 +69,14 @@ function VectorSpace() {
 			}
 		}
 
-		// Draw lines between the vertices
-		drawLineBetweenPoints(this.points.final[0], this.points.final[1], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[1], this.points.final[2], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[2], this.points.final[3], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[3], this.points.final[0], `rgba(0, 0, 0, ${opacity})`);
-
-		drawLineBetweenPoints(this.points.final[4], this.points.final[5], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[5], this.points.final[6], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[6], this.points.final[7], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[7], this.points.final[4], `rgba(0, 0, 0, ${opacity})`);
-
-		drawLineBetweenPoints(this.points.final[0], this.points.final[4], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[1], this.points.final[5], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[2], this.points.final[6], `rgba(0, 0, 0, ${opacity})`);
-		drawLineBetweenPoints(this.points.final[3], this.points.final[7], `rgba(0, 0, 0, ${opacity})`);
-
 		// Draw the cubes
 		 for (let i = 0; i < this.cubes.length; i++) {
 			this.cubes[i].draw();
+		 }
+
+		 // Draw the fdf objects
+		 for (let i = 0; i < this.fdfObjs.length; i++) {
+		 	this.fdfObjs[i].draw();
 		 }
 	}
 
@@ -109,6 +105,13 @@ function VectorSpace() {
 		for (let i = 0; i < this.cubes.length; i++) {
 			for (let j = 0; j < this.cubes[i].vertices.final.length; j++) {
 				this.cubes[i].vertices.final[j].multMat(this.finalMat);
+			}
+		}
+
+		// Transform the fdf objects
+		for (let i = 0; i < this.fdfObjs.length; i++) {
+			for (let j = 0; j < this.fdfObjs[i].vertices.final.length; j++) {
+				this.fdfObjs[i].vertices.final[j].multMat(this.finalMat);
 			}
 		}
 	}
@@ -148,6 +151,15 @@ function VectorSpace() {
 				this.cubes[i].vertices.final[j].x = this.cubes[i].vertices.initial[j].x;
 				this.cubes[i].vertices.final[j].y = this.cubes[i].vertices.initial[j].y;
 				this.cubes[i].vertices.final[j].z = this.cubes[i].vertices.initial[j].z;
+			}
+		}
+
+		// Reset the fdf objects
+		for (let i = 0; i < this.fdfObjs.length; i++) {
+			for (let j = 0; j < this.fdfObjs[i].vertices.final.length; j++) {
+				this.fdfObjs[i].vertices.final[j].x = this.fdfObjs[i].vertices.initial[j].x;
+				this.fdfObjs[i].vertices.final[j].y = this.fdfObjs[i].vertices.initial[j].y;
+				this.fdfObjs[i].vertices.final[j].z = this.fdfObjs[i].vertices.initial[j].z;
 			}
 		}
 
@@ -289,4 +301,76 @@ function Cube(origin, r, color) {
 		drawLineBetweenPoints(this.vertices.final[2], this.vertices.final[6], this.color);
 		drawLineBetweenPoints(this.vertices.final[3], this.vertices.final[7], this.color);
 	}		
+}
+
+// Example of an fdf object
+// const fdfString = `0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+// 					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+// 					0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
+// 					0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+// 					0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+// 					0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
+// 					0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
+// 					0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
+// 					0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
+// 					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+// 					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0`;
+
+// Create fdf object
+function FDFObj(fdfStr) {
+	this.basisScalar = 10;
+	this.heightScalar = 2;
+	this.fdfArr = fdfStr.trim().split('\n').map(row => row.split(/\s+/).map(Number));
+	this.vertices = {
+		initial: [],
+		final: []
+	};
+
+	console.log(this.fdfArr);
+
+	// Add the vertices
+	for (let i = 0; i < this.fdfArr.length; i++) {
+		for (let j = 0; j < this.fdfArr[i].length; j++) {
+			// console.log("i:", i, "j:", j, "index:", i * this.fdfArr[i].length + j);
+			this.vertices.initial.push(new Vec3(j * this.basisScalar, (this.fdfArr.length - 1 - i) * this.basisScalar, this.fdfArr[i][j] * this.heightScalar));
+			this.vertices.final.push(new Vec3(j * this.basisScalar, (this.fdfArr.length - 1 - i) * this.basisScalar, this.fdfArr[i][j] * this.heightScalar));
+		}
+		// console.log('\n');
+	}
+
+	this.draw = function() {
+		// Draw the final vertices
+		// for (let i = 0; i < this.vertices.final.length; i++) {
+		// 	drawVector(this.vertices.final[i], `rgba(0, 0, 0, 1)`);
+		// }
+
+		// Draw lines between the vertices
+		for (let i = 0; i < this.fdfArr.length; i++) {
+			for (let j = 0; j < this.fdfArr[i].length; j++) {
+				// console.log(this.vertices.final[i * this.fdfArr[i].length + j]);
+				// console.log("i:", i, "j:", j, "index:", i * this.fdfArr[i].length + j);
+
+				if (j < this.fdfArr[i].length - 1) {
+					drawLineBetweenPoints(this.vertices.final[i * this.fdfArr[i].length + j], this.vertices.final[i * this.fdfArr[i].length + j + 1], `rgba(0, 0, 0, 1)`);
+				}
+				if (i < this.fdfArr.length - 1) {
+					drawLineBetweenPoints(this.vertices.final[i * this.fdfArr[i].length + j], this.vertices.final[(i + 1) * this.fdfArr[i].length + j], `rgba(0, 0, 0, 1)`);
+				}
+			}
+		}
+	}
+
+	this.translate = function(x, y, z) {
+		for (let i = 0; i < this.vertices.final.length; i++) {
+			this.vertices.initial[i].x += x;
+			this.vertices.initial[i].y += y;
+			this.vertices.initial[i].z += z;
+
+			this.vertices.final[i].x += x;
+			this.vertices.final[i].y += y;
+			this.vertices.final[i].z += z;
+		}
+	}
+
+	this.translate(-this.fdfArr[0].length * this.basisScalar / 2, -this.fdfArr.length * this.basisScalar / 2, 0)
 }
