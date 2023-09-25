@@ -319,7 +319,7 @@ function Cube(origin, r, color) {
 // Create fdf object
 function FDFObj(fdfStr) {
 	this.basisScalar = 10;
-	this.heightScalar = 2;
+	this.heightScalar = 10;
 	this.fdfArr = fdfStr.trim().split('\n').map(row => row.split(/\s+/).map(Number));
 	this.vertices = {
 		initial: [],

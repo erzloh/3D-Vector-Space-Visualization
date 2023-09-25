@@ -50,7 +50,7 @@ const drawVector = (v, color) => {
 }
 
 const drawOrigin = () => {
-	drawCircle(0, 0, 3, 'black', true);
+	drawCircle(0, 0, 2, 'black', true);
 }
 
 const drawAxes = () => {
