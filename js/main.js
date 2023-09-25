@@ -68,10 +68,12 @@ const orthogonalProjectionMat = [	1, 0, 0,
 									0, 1, 0,
 									0, 0, 0];
 
-// vs.addMatrix(xAxisRotMat);
-// vs.addMatrix(yAxisRotMat);
-// vs.addMatrix(zAxisRotMat);
-// vs.addMatrix(ericMat);
+// Add matrices to the vector space
+
+// Isometric projection Matrices
+vs.addMatrix(getYAxisRotMat(Math.PI / 4));
+vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
+
 vs.addMatrix(orthogonalProjectionMat);
 
 // Apply transformations
@@ -96,6 +98,10 @@ function animate() {
 			angle = 0;
 		}
 		vs.reset();
+
+		vs.addMatrix(getYAxisRotMat(Math.PI / 4));
+		vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
+
 		vs.addMatrix(getXAxisRotMat(angle));
 		vs.addMatrix(getYAxisRotMat(angle));
 		vs.addMatrix(getZAxisRotMat(angle));
