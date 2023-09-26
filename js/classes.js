@@ -241,9 +241,9 @@ function Cube(origin, r, color) {
 
 	this.draw = function() {
 		// Draw the vectors from the origin to the vertices
-		for (let i = 0; i < this.vertices.length; i++) {
-			drawVector(this.vertices[i].final, this.color);
-		}
+		// for (let i = 0; i < this.vertices.length; i++) {
+		// 	drawVector(this.vertices[i].final, this.color);
+		// }
 
 		// Draw lines between the vertices
 		drawLineBetweenPoints(this.vertices[0].final, this.vertices[1].final, this.color);

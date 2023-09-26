@@ -8,10 +8,10 @@ vs.addVector(0, 100, 0, 'red');
 vs.addVector(0, 0, 100, 'blue');
 
 // Add points
-vs.addPoint(-50, 50, -100, 'green');
+// vs.addPoint(-50, 50, -100, 'green');
 
 // Add cube
-vs.addCube(new Vec3(0, 0, 0), 100, 'black');
+// vs.addCube(new Vec3(0, 0, 0), 100, 'black');
 
 // Add wireframe
 const fdfString = `0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
@@ -243,9 +243,13 @@ canvas.addEventListener('mousemove', function(event) {
     const deltaX = event.clientX - previousMousePosition.x;
     const deltaY = event.clientY - previousMousePosition.y;
 
+	console.log(deltaX, deltaY);
+
     // Convert the deltaX and deltaY into rotation angles
-    angle_x += deltaY * Math.PI / 360; // Scaling factor for sensitivity
-    angle_y += deltaX * Math.PI / 360;
+    angle_x += deltaY * Math.PI / 180; // Scaling factor for sensitivity
+    angle_y += deltaX * Math.PI / 180;
+
+	// console.log(angle_x,  angle_y);
 
     // Reset and apply transformations
     vs.reset();
@@ -261,14 +265,10 @@ canvas.addEventListener('mousemove', function(event) {
     };
 });
 
-canvas.addEventListener('mouseup', function(event) {
+canvas.addEventListener('mouseup', function() {
     isDragging = false;
 });
 
-canvas.addEventListener('mouseleave', function(event) {
+canvas.addEventListener('mouseleave', function() {
     isDragging = false;
 });
-
-// Now, you can keep the rest of your code (your classes, animation loop, etc.) as is. 
-// When you move the mouse while clicking on the canvas, it will rotate your vector space according to the movement.
-// 
