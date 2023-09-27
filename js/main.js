@@ -143,6 +143,8 @@ animate();
 
 // ------------------------------ Event listeners ------------------------------
 const rotateButton = document.getElementById('rotate-button');
+let clickSound = document.getElementById('clickSound');
+
 rotateButton.addEventListener('click', function() {
 	rotate = !rotate;
 	if (rotate) {
@@ -151,6 +153,8 @@ rotateButton.addEventListener('click', function() {
 	else {
 		rotateButton.innerHTML = 'rotate';
 	}
+	clickSound.volume = 0.05;
+    clickSound.play();
 });
 
 // Zoom with the mouse wheel
