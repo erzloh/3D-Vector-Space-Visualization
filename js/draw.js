@@ -46,7 +46,7 @@ const drawCircle = (x, y, r, color, fill) => {
 
 const drawVector = (v, color) => {
 	drawLine(0, 0, v.x, v.y, color);
-	drawCircle(v.x, v.y, 5, color, false);
+	drawCircle(v.x, v.y, 4, color, false);
 }
 
 const drawOrigin = () => {

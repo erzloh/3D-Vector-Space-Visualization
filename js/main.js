@@ -14,31 +14,21 @@ vs.addVector(0, 0, 100, 'blue');
 // vs.addCube(new Vec3(0, 0, 0), 100, 'black');
 
 // Add wireframe
-const fdfString = `0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-					0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
-					0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
-					0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
-					0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
-					0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
-					0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
-					0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
-					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-					0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0`;
+const wireframe42 = 
+`0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
+0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
+0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
+0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
+0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0`;
 
-// vs.addFDF(`0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-// 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-// 0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
-// 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
-// 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
-// 0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
-// 0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
-// 0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
-// 0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
-// 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-// 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0`);
-
-vs.addWireframe(`0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+const wireframePyramid =
+`0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -71,14 +61,12 @@ vs.addWireframe(`0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0`);
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0`;
+
+// vs.addWireframe(wireframePyramid);
+vs.addWireframe(wireframe42);
 
 // Define matrices
-const ericMat = [	1, 0, -Math.sqrt(2) / 2,
-					0, 1, -Math.sqrt(2) / 2,
-					0, 0, 1];
-
-// Rotation matrices
 
 // Rotation on the x-axis
 function getXAxisRotMat(angle) {
@@ -107,6 +95,15 @@ function getZAxisRotMat(angle) {
 	];
 }
 
+// Scaling Matrices
+function getScaleMat(x, y, z) {
+	return [
+		x, 0, 0,
+		0, y, 0,
+		0, 0, z
+	];
+}
+
 // Orthogonal projection matrix
 const orthogonalProjectionMat = [	1, 0, 0,
 									0, 1, 0,
@@ -118,7 +115,7 @@ const orthogonalProjectionMat = [	1, 0, 0,
 vs.addMatrix(getYAxisRotMat(Math.PI / 4));
 vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
 
-vs.addMatrix(getXAxisRotMat(0.01));
+// vs.addMatrix(getXAxisRotMat(0.01));
 // vs.addMatrix(orthogonalProjectionMat);
 
 // Apply transformations
@@ -128,33 +125,18 @@ vs.applyMatrices();
 vs.draw();
 
 // ------------------------------ Animation loop ------------------------------
-let angle = 0.01;
-let rotationLength = 360; // In frames
+let angle = 0.015;
 let rotate = false;
 
 function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, canvas.width, canvas.height);
 
-	if (rotate)
-	{
-		// angle += 2 * Math.PI / rotationLength;
-		// if (angle >= 2 * Math.PI) {
-		// 	angle = 0;
-		// }
-		// vs.reset();
-
-		// vs.addMatrix(getYAxisRotMat(Math.PI / 4));
-		// vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
-
-		// vs.addMatrix(getXAxisRotMat(angle));
-		// vs.addMatrix(getYAxisRotMat(angle));
-		// vs.addMatrix(getZAxisRotMat(angle));
-		// vs.addMatrix(orthogonalProjectionMat);
+	if (rotate) {
+		vs.matrices = [];
+		vs.addMatrix(getXAxisRotMat(angle));
 		vs.applyMatrices();
 	}
-	// vs.addMatrix(ericMat);
-
 	vs.draw();
 }
 animate();
@@ -164,21 +146,14 @@ const rotateButton = document.getElementById('rotate-button');
 rotateButton.addEventListener('click', function() {
 	rotate = !rotate;
 	if (rotate) {
-		rotateButton.innerHTML = 'stop';
-		// vs.reset();
-		// vs.addMatrix(getYAxisRotMat(Math.PI / 4));
-		// vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
-		// vs.applyMatrices();
-		vs.matrices = [];
-		vs.addMatrix(getXAxisRotMat(0.01));
+		rotateButton.innerHTML = '!rotate';
 	}
 	else {
-		rotateButton.innerHTML = 'start';
+		rotateButton.innerHTML = 'rotate';
 	}
 });
 
 // Zoom with the mouse wheel
-
 const zoomInAmount = 1.1;
 const zoomOutAmount = 0.9;
 
@@ -186,32 +161,14 @@ canvas.addEventListener('wheel', function(e) {
 	// stop scrolling
 	e.preventDefault();
 	if (e.deltaY < 0) {
-		console.log('zoom in');
-		for (let i = 0; i < vs.fdfObjs.length; i++) {
-			for (let j = 0; j < vs.fdfObjs[i].vertices.final.length; j++) {
-				vs.fdfObjs[i].vertices.initial[j].x *= zoomOutAmount;
-				vs.fdfObjs[i].vertices.initial[j].y *= zoomOutAmount;
-				vs.fdfObjs[i].vertices.initial[j].z *= zoomOutAmount;
-
-				vs.fdfObjs[i].vertices.final[j].x *= zoomOutAmount;
-				vs.fdfObjs[i].vertices.final[j].y *= zoomOutAmount;
-				vs.fdfObjs[i].vertices.final[j].z *= zoomOutAmount;
-			}
-		}
+		vs.matrices = [];
+		vs.addMatrix(getScaleMat(zoomOutAmount, zoomOutAmount, zoomOutAmount));
+		vs.applyMatrices();
 	}
 	else {
-		console.log('zoom out');
-		for (let i = 0; i < vs.fdfObjs.length; i++) {
-			for (let j = 0; j < vs.fdfObjs[i].vertices.final.length; j++) {
-				vs.fdfObjs[i].vertices.initial[j].x *= zoomInAmount;
-				vs.fdfObjs[i].vertices.initial[j].y *= zoomInAmount;
-				vs.fdfObjs[i].vertices.initial[j].z *= zoomInAmount;
-
-				vs.fdfObjs[i].vertices.final[j].x *= zoomInAmount;
-				vs.fdfObjs[i].vertices.final[j].y *= zoomInAmount;
-				vs.fdfObjs[i].vertices.final[j].z *= zoomInAmount;
-			}
-		}
+		vs.matrices = [];
+		vs.addMatrix(getScaleMat(zoomInAmount, zoomInAmount, zoomInAmount));
+		vs.applyMatrices();
 	}
 });
 
@@ -223,9 +180,6 @@ let previousMousePosition = {
     y: 0
 };
 
-let angle_x = 0;
-let angle_y = 0;
-
 // --------------- Mouse Event Listeners ---------------
 canvas.addEventListener('mousedown', function(event) {
     isDragging = true;
@@ -233,42 +187,76 @@ canvas.addEventListener('mousedown', function(event) {
         x: event.clientX,
         y: event.clientY
     };
-	rotate = false;
-	rotateButton.innerHTML = 'start';
+	// rotate = false;
+	// rotateButton.innerHTML = 'start';
 });
 
-canvas.addEventListener('mousemove', function(event) {
+// Turn around the world's axis
+document.addEventListener('mousemove', function(event) {
     if (!isDragging) return;
 
+    // Calculate the difference in mouse positions
     const deltaX = event.clientX - previousMousePosition.x;
     const deltaY = event.clientY - previousMousePosition.y;
 
-	console.log(deltaX, deltaY);
+    // Convert these differences to angles - adjust the divisor for sensitivity
+    const rotationAngleY = deltaX / canvas.width * (Math.PI);
+    const rotationAngleX = deltaY / canvas.height * (Math.PI);
 
-    // Convert the deltaX and deltaY into rotation angles
-    angle_x += deltaY * Math.PI / 180; // Scaling factor for sensitivity
-    angle_y += deltaX * Math.PI / 180;
-
-	// console.log(angle_x,  angle_y);
-
-    // Reset and apply transformations
-    vs.reset();
-    vs.addMatrix(getYAxisRotMat(angle_y));
-    vs.addMatrix(getXAxisRotMat(angle_x));
-    // vs.addMatrix(orthogonalProjectionMat);
+    // Reset transformations and apply new rotations
+    vs.matrices = [];
+    vs.addMatrix(getXAxisRotMat(rotationAngleX));
+    vs.addMatrix(getYAxisRotMat(rotationAngleY));
     vs.applyMatrices();
 
-    // Update the previous mouse position
-    previousMousePosition = {
-        x: event.clientX,
-        y: event.clientY
-    };
+    // Store current mouse position for the next frame
+    previousMousePosition.x = event.clientX;
+    previousMousePosition.y = event.clientY;
 });
 
-canvas.addEventListener('mouseup', function() {
+document.addEventListener('mouseup', function() {
     isDragging = false;
 });
 
-canvas.addEventListener('mouseleave', function() {
-    isDragging = false;
+// canvas.addEventListener('mouseleave', function() {
+//     isDragging = false;
+// });
+
+// Turn around the object's axis
+// canvas.addEventListener('mousemove', function(event) {
+//     if (!isDragging) return;
+
+//     const deltaX = event.clientX - previousMousePosition.x;
+//     const deltaY = event.clientY - previousMousePosition.y;
+
+// 	let mouseSensitivity = 0.01;
+
+// 	// console.log(deltaX, deltaY);
+
+//     // Convert the deltaX and deltaY into rotation angles
+//     rotationAngleX += (deltaY * Math.PI / 360);
+//     rotationAngleY += (deltaX * Math.PI / 360);
+
+// 	// console.log(angle_x,  angle_y);
+
+//     // Reset and apply transformations
+// 	vs.reset()
+//     vs.addMatrix(getYAxisRotMat(rotationAngleY));
+//     vs.addMatrix(getXAxisRotMat(rotationAngleX));
+//     // vs.addMatrix(orthogonalProjectionMat);
+//     vs.applyMatrices();
+
+//     // Update the previous mouse position
+//     previousMousePosition = {
+//         x: event.clientX,
+//         y: event.clientY
+//     };
+// });
+
+// Reset scene when R is pressed
+document.addEventListener('keydown', function(event) {
+	if (event.key === 'r') {
+		vs.reset();
+		// vs.applyMatrices();
+	}
 });

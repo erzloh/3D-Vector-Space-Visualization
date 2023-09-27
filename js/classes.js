@@ -274,7 +274,7 @@ function Cube(origin, r, color) {
 // Define Wireframe Class
 function Wireframe(mapStr) {
 	this.basisScalar = 10;
-	this.heightScalar = 10;
+	this.heightScalar = 2;
 	this.map2dArr = mapStr.trim().split('\n').map(row => row.split(/\s+/).map(Number));
 	this.vertices = [];
 
