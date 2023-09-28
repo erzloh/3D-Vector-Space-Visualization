@@ -57,6 +57,8 @@ const heightmap42 =
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0`;
 ```
+![スクリーンショット 2023-09-28 8 57 27](https://github.com/erzloh/3D-Vector-Space-Visualization/assets/48589114/586c9242-870b-4635-a8d8-d5a206fb076c)
+
 	
 ```javascript
 const heightMapPyramid =
