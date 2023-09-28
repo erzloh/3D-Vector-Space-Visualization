@@ -6,10 +6,10 @@ Visualize 3D wireframes in a simple, interactive viewer.
 
 I made this project alongside my learning of Linear Algebra to put into practice what I learned from theory. For those interested in the topic, I can't recommend enough the [Essence of Linear Algebra video series](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=zM29JPzZTQTrPIRR) from 3Blue1Brown.
 
-I already did a similar program written in C as a school project (cf. [42-FdF](https://github.com/erzloh/42-FdF/tree/main)). This time, it's written only in pure JavaScript, HTML and CSS.
+I already did a similar program written in C as a school project (cf. [42-FdF](https://github.com/erzloh/42-FdF/tree/main)). This time, it's written only in pure JavaScript, HTML, and CSS.
 
 ## Live Demo
-You can try the project [here](https://erzloh.github.io/3D-Vector-Space-Visualization/)!
+You can try the project [here](https://erzloh.github.io/Wireframe-Viewer/)!
 
 ## Features
 
