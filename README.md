@@ -95,3 +95,5 @@ const heightMapPyramid =
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0`;
 ```
+![スクリーンショット 2023-09-28 8 54 37](https://github.com/erzloh/3D-Vector-Space-Visualization/assets/48589114/a8ea118f-4e27-4d5a-8d59-d22cdd6a466b)
+
