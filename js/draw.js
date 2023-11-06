@@ -1,15 +1,9 @@
 // Define the canvas variables
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
-// canvas.width = 1200;
-// get width of the canvas from the css
-// canvas.style.width = '100%';
-// canvas.style.height = '450px';
 
-// canvas.width = canvas.clientWidth;
 canvas.width = 800;
 canvas.height = canvas.width * (9/16);
-console.log(canvas.width, canvas.height);
 
 // -------------------------  Define drawing functions ----------------------------
 const drawLine = (x1, y1, x2, y2, color) => {

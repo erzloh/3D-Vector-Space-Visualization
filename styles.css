@@ -41,7 +41,7 @@ canvas {
 #buttons {
 	/* width: 100%; */
 	margin-top: 64px;
-	margin-bottom: 64px;
+	/* margin-bottom: 64px; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -50,7 +50,7 @@ canvas {
 }
 
 button {
-	margin: 0 3em;
+	/* margin: 0 3em; */
 	background-color: white;
 	color: black;
 	border-radius: 10em;
@@ -128,18 +128,19 @@ textarea {
 	font-size: 16px;
 	white-space: nowrap;
 	box-sizing: border-box;
+	resize: none;
 }
 
 #submit-button {
-	margin-top: 32px;
-	margin-bottom: 64px;
+	/* margin-top: 32px;
+	margin-bottom: 64px; */
 }
 
 #down-icon {
 	/* display: flex;
 	justify-content: center;
 	align-items: flex-end; */
-	min-height: 150px;
+	min-height: 64px;
 	text-align: center;
 	flex-grow: 1;
 	display: flex;
@@ -176,7 +177,46 @@ i {
 	}
 }
 
+@media (max-height: 700px) {
+	body {
+		margin-left: 30%;
+		margin-right: 30%;
+	}
+
+	h1 {
+		margin: 32px;
+	}
+}
+
 #instructions {
 	margin-top: 64px;
 	margin-bottom: 64px;
+}
+
+#bottom-button {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 32px;
+	margin-bottom: 64px;
+}
+
+#bottom-button button {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#erzloh-ch {
+	color:#8a8989;
+	text-decoration: underline;
+}
+
+#erzloh-ch:visited {
+	/* remove */
+	color:#8a8989;
+}
+
+a {
+	color: black;
 }

@@ -176,20 +176,46 @@ function zoomOut() {
 	vs.applyMatrices();
 }
 
+// ------------------------------ Zoom ------------------------------
+// Variables zur Verfolgung der Berührungspunkte
 
 canvas.addEventListener('wheel', function(e) {
-	// stop scrolling
-	e.preventDefault();
-	if (e.deltaY < 0) {
-		vs.matrices = [];
-		vs.addMatrix(getScaleMat(zoomOutAmount, zoomOutAmount, zoomOutAmount));
-		vs.applyMatrices();
-	}
-	else {
-		vs.matrices = [];
-		vs.addMatrix(getScaleMat(zoomInAmount, zoomInAmount, zoomInAmount));
-		vs.applyMatrices();
-	}
+  e.preventDefault();
+  if (e.deltaY < 0) {
+    zoomIn();
+  } else {
+    zoomOut();
+  }
+});
+
+var initialTouchDistance = 0;
+var currentTouchDistance = 0;
+
+canvas.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 2) {
+    // Berechne den initialen Abstand zwischen den beiden Fingern
+    initialTouchDistance = Math.hypot(
+      e.touches[0].pageX - e.touches[1].pageX,
+      e.touches[0].pageY - e.touches[1].pageY
+    );
+  }
+});
+
+canvas.addEventListener('touchmove', function(e) {
+  if (e.touches.length === 2) {
+    // Berechne den aktuellen Abstand zwischen den beiden Fingern
+    currentTouchDistance = Math.hypot(
+      e.touches[0].pageX - e.touches[1].pageX,
+      e.touches[0].pageY - e.touches[1].pageY
+    );
+
+    // Vergleiche den aktuellen Abstand mit dem initialen Abstand, um die Zoom-Richtung zu bestimmen
+    if (currentTouchDistance > initialTouchDistance) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
 });
 
 // Rotate with the mouse
@@ -249,6 +275,7 @@ document.addEventListener('keydown', function(event) {
 // ------------------------------ Input Event Listener ------------------------------
 const textarea = document.querySelector('textarea');
 const submitButton = document.getElementById('submit-button');
+const randomButton = document.getElementById('random-button');
 
 submitButton.addEventListener('click', function() {
 	clickSound.volume = 0.05;
@@ -274,5 +301,50 @@ textarea.addEventListener("input", function(event) {
   
 
   document.getElementById("down-icon").addEventListener("click", function() {
-	window.scrollTo(0, window.innerHeight);
+	// window.scrollTo(0, window.innerHeight);
+	document.querySelector('#second-page').scrollIntoView({ behavior: "smooth" });
   });
+
+  randomButton.addEventListener('click', function() {
+	clickSound.volume = 0.05;
+	clickSound.play();
+	window.scrollTo(0, 0);
+
+	vs.clearVectorSpace();
+	
+	const randomWireframe = generateRandomWireframe();
+	textarea.value = randomWireframe;
+	vs.addWireframe(randomWireframe);
+	
+	// Isometric projection Matrices
+	vs.addMatrix(getYAxisRotMat(Math.PI / 4));
+	vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
+	vs.applyMatrices();
+	vs.draw();
+});
+
+// ------------------------------ Random Wireframe Generator ------------------------------
+function generateRandomWireframe() {
+	const rows = 10;
+	const columns = 10;
+	const max = 20;
+	const min = 0;
+
+	let wireframe = '';
+
+	for (let i = 0; i < rows; i++) {
+		for (let j = 0; j < columns; j++) {
+
+			let random = Math.floor(Math.random() * (max - min + 1)) + min;
+			wireframe += random;
+			if (j != columns - 1) {
+				wireframe += ' ';
+			}
+		}
+		if (i != rows - 1) {
+			wireframe += '\n';
+		}
+	}
+
+	return wireframe;
+}
