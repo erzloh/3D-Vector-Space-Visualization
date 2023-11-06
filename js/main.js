@@ -264,6 +264,49 @@ document.addEventListener('mouseup', function() {
     isDragging = false;
 });
 
+// ------------------------------ Motion on mobile ------------------------------
+// Touch-Ereignisse zur Drahtgitterbewegung hinzufügen
+canvas.addEventListener('touchstart', function(event) {
+    isDragging = true;
+    previousTouchPosition = {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY
+    };
+    event.preventDefault();
+});
+
+canvas.addEventListener('touchmove', function(event) {
+    if (!isDragging) return;
+
+    // Calculate the difference in touch positions
+    const deltaX = event.touches[0].clientX - previousTouchPosition.x;
+    const deltaY = event.touches[0].clientY - previousTouchPosition.y;
+
+    // Convert these differences to angles - adjust the divisor for sensitivity
+    const rotationAngleY = deltaX / canvas.width * Math.PI;
+    const rotationAngleX = deltaY / canvas.height * Math.PI;
+
+    // Reset transformations and apply new rotations
+    vs.matrices = [];
+    vs.addMatrix(getXAxisRotMat(rotationAngleX));
+    vs.addMatrix(getYAxisRotMat(rotationAngleY));
+    vs.applyMatrices();
+
+    // Store current touch position for the next frame
+    previousTouchPosition.x = event.touches[0].clientX;
+    previousTouchPosition.y = event.touches[0].clientY;
+    event.preventDefault();
+});
+
+canvas.addEventListener('touchend', function() {
+    isDragging = false;
+});
+
+canvas.addEventListener('touchcancel', function() {
+    isDragging = false;
+});
+
+
 // Reset scene when R is pressed
 document.addEventListener('keydown', function(event) {
 	if (event.key === 'r') {
