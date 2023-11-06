@@ -164,13 +164,13 @@ rotateButton.addEventListener('click', function() {
 const zoomInAmount = 1.1;
 const zoomOutAmount = 0.9;
 
-function zoomIn() {
+function zoomIn(zoomInAmount) {
 	vs.matrices = [];
 	vs.addMatrix(getScaleMat(zoomInAmount, zoomInAmount, zoomInAmount));
 	vs.applyMatrices();
 }
 
-function zoomOut() {
+function zoomOut(zoomOutAmount) {
 	vs.matrices = [];
 	vs.addMatrix(getScaleMat(zoomOutAmount, zoomOutAmount, zoomOutAmount));
 	vs.applyMatrices();
@@ -182,9 +182,9 @@ function zoomOut() {
 canvas.addEventListener('wheel', function(e) {
   e.preventDefault();
   if (e.deltaY < 0) {
-    zoomIn();
+    zoomIn(zoomInAmount);
   } else {
-    zoomOut();
+    zoomOut(zoomOutAmount);
   }
 });
 
@@ -212,9 +212,9 @@ canvas.addEventListener('touchmove', function(e) {
 
     // Vergleiche den aktuellen Abstand mit dem initialen Abstand, um die Zoom-Richtung zu bestimmen
     if (currentTouchDistance > initialTouchDistance) {
-      zoomIn();
+      zoomIn(1.01);
     } else {
-      zoomOut();
+      zoomOut(0.99);
     }
 	e.preventDefault();
   }
