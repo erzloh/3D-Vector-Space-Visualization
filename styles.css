@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+  }
+
 body {
 	font-family: 'Source Code Pro', monospace;
 	background: #f3ede3;
@@ -5,30 +9,43 @@ body {
 	flex-direction: column;
 	align-items: center;
 	/* justify-content: center; */
+	margin-left: 20%;
+	margin-right: 20%;
 	
+}
+
+#first-page {
+	/* width: 100%; */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	justify-content: center;
 }
 
 h1 {
 	font-weight: 200;
 	margin: 64px;
+	text-align: center;
 	animation: fadeIn 1s ease-in-out;
 }
 
 canvas {
 	/* border: 1px solid #000; */
+	width: 100%;
 	display: block;
-	border-radius: 6px;
+	border-radius: 20px;
 	animation: fadeIn 2s ease-in-out;
 }
 
 #buttons {
+	/* width: 100%; */
 	margin-top: 64px;
 	margin-bottom: 64px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	width: 800px;
 	animation: fadeIn 3s ease-in-out;
 }
 
@@ -58,11 +75,12 @@ button:active {
 }
 
 p {
-	margin-bottom: 64px;
+	/* margin-bottom: 16px; */
+	text-align: center;
 }
 
 footer {
-	padding: 10px;
+	padding-bottom: 10px;
 	color: #aba9a9;
 	font-size: 14px;
 	text-align: center;
@@ -76,4 +94,89 @@ footer {
 	to {
 		opacity: 1;
 	}
+}
+
+@keyframes fallFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+#second-page {
+	width: 100%;
+	animation: fadeIn 3s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+textarea {
+	width: 100%;
+	height: 260px;
+	/* max-width: 800px; */
+	/* margin-bottom: 64px; */
+	border-radius: 20px;
+	border: 1px solid #fff;
+	padding: 16px;
+	font-family: 'Source Code Pro', monospace;
+	font-size: 16px;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+#submit-button {
+	margin-top: 32px;
+	margin-bottom: 64px;
+}
+
+#down-icon {
+	/* display: flex;
+	justify-content: center;
+	align-items: flex-end; */
+	min-height: 150px;
+	text-align: center;
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* margin: 64px; */
+	animation: fallFadeIn 4s ease-in-out;
+	
+}
+
+#down-icon:hover i {
+	transform: scale(1.3) translateY(6px);
+	cursor: pointer;
+}
+
+i {
+	transition: all 0.3s ease-in-out;
+}
+
+#info {
+	margin-top: 64px;
+	margin-bottom: 64px;
+	text-align: center;
+}
+
+#input-text {
+	margin-top: 64px;
+}
+
+@media (max-width: 768px) {
+	body {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+}
+
+#instructions {
+	margin-top: 64px;
+	margin-bottom: 64px;
 }

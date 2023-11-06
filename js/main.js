@@ -33,35 +33,36 @@ const wireframePyramid =
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
-0 0 0 0 0 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 3 3 3 3 3 3 3 3 3 3 3 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 5 5 5 5 5 5 5 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 6 6 6 6 6 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 7 7 7 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 8 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 8 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 8 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 8 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 8 8 8 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 7 7 7 7 7 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 6 6 6 6 6 6 6 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 5 5 5 5 5 5 5 5 5 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 4 4 4 4 4 4 4 4 4 4 4 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 3 3 3 3 3 3 3 3 3 3 3 3 3 2 1 0 0 0 0 0
-0 0 0 0 0 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 0 0 0 0 0
-0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 0 0 0
+0 0 0 0 0 5 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 15 15 15 15 15 15 15 15 15 15 15 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 25 25 25 25 25 25 25 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 30 30 30 30 30 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 35 35 35 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 40 40 40 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 40 40 40 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 40 40 40 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 40 40 40 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 40 45 40 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 35 35 35 35 35 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 30 30 30 30 30 30 30 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 25 25 25 25 25 25 25 25 25 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 20 20 20 20 20 20 20 20 20 20 20 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 15 15 15 15 15 15 15 15 15 15 15 15 15 10 5 0 0 0 0 0
+0 0 0 0 0 5 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 5 0 0 0 0 0
+0 0 0 0 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0`;
+
 
 // vs.addWireframe(wireframePyramid);
 vs.addWireframe(wireframe42);
@@ -114,6 +115,8 @@ const orthogonalProjectionMat = [	1, 0, 0,
 // Isometric projection Matrices
 vs.addMatrix(getYAxisRotMat(Math.PI / 4));
 vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
+let scale = 2.5;
+vs.addMatrix(getScaleMat(scale, scale, scale));
 
 // vs.addMatrix(getXAxisRotMat(0.01));
 // vs.addMatrix(orthogonalProjectionMat);
@@ -148,7 +151,7 @@ let clickSound = document.getElementById('clickSound');
 rotateButton.addEventListener('click', function() {
 	rotate = !rotate;
 	if (rotate) {
-		rotateButton.innerHTML = '!rotate';
+		rotateButton.innerHTML = 'stop';
 	}
 	else {
 		rotateButton.innerHTML = 'rotate';
@@ -160,6 +163,19 @@ rotateButton.addEventListener('click', function() {
 // Zoom with the mouse wheel
 const zoomInAmount = 1.1;
 const zoomOutAmount = 0.9;
+
+function zoomIn() {
+	vs.matrices = [];
+	vs.addMatrix(getScaleMat(zoomInAmount, zoomInAmount, zoomInAmount));
+	vs.applyMatrices();
+}
+
+function zoomOut() {
+	vs.matrices = [];
+	vs.addMatrix(getScaleMat(zoomOutAmount, zoomOutAmount, zoomOutAmount));
+	vs.applyMatrices();
+}
+
 
 canvas.addEventListener('wheel', function(e) {
 	// stop scrolling
@@ -222,41 +238,6 @@ document.addEventListener('mouseup', function() {
     isDragging = false;
 });
 
-// canvas.addEventListener('mouseleave', function() {
-//     isDragging = false;
-// });
-
-// Turn around the object's axis
-// canvas.addEventListener('mousemove', function(event) {
-//     if (!isDragging) return;
-
-//     const deltaX = event.clientX - previousMousePosition.x;
-//     const deltaY = event.clientY - previousMousePosition.y;
-
-// 	let mouseSensitivity = 0.01;
-
-// 	// console.log(deltaX, deltaY);
-
-//     // Convert the deltaX and deltaY into rotation angles
-//     rotationAngleX += (deltaY * Math.PI / 360);
-//     rotationAngleY += (deltaX * Math.PI / 360);
-
-// 	// console.log(angle_x,  angle_y);
-
-//     // Reset and apply transformations
-// 	vs.reset()
-//     vs.addMatrix(getYAxisRotMat(rotationAngleY));
-//     vs.addMatrix(getXAxisRotMat(rotationAngleX));
-//     // vs.addMatrix(orthogonalProjectionMat);
-//     vs.applyMatrices();
-
-//     // Update the previous mouse position
-//     previousMousePosition = {
-//         x: event.clientX,
-//         y: event.clientY
-//     };
-// });
-
 // Reset scene when R is pressed
 document.addEventListener('keydown', function(event) {
 	if (event.key === 'r') {
@@ -264,3 +245,34 @@ document.addEventListener('keydown', function(event) {
 		// vs.applyMatrices();
 	}
 });
+
+// ------------------------------ Input Event Listener ------------------------------
+const textarea = document.querySelector('textarea');
+const submitButton = document.getElementById('submit-button');
+
+submitButton.addEventListener('click', function() {
+	clickSound.volume = 0.05;
+    clickSound.play();
+	window.scrollTo(0, 0);
+
+	vs.clearVectorSpace();
+	vs.addWireframe(textarea.value);
+
+	// Isometric projection Matrices
+	vs.addMatrix(getYAxisRotMat(Math.PI / 4));
+	vs.addMatrix(getXAxisRotMat(Math.asin(Math.tan(Math.PI / 6))));
+	vs.applyMatrices();
+	vs.draw();
+});
+
+// JavaScript-Code, um die Eingabe auf Zahlen, Leerzeichen und Enter-Taste zu beschränken
+textarea.addEventListener("input", function(event) {
+	const inputText = event.target.value;
+	const filteredText = inputText.replace(/[^0-9\s\n-]/g, '');
+	event.target.value = filteredText;
+  });
+  
+
+  document.getElementById("down-icon").addEventListener("click", function() {
+	window.scrollTo(0, window.innerHeight);
+  });

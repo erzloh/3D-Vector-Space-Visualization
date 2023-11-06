@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Wireframe Viewer</title>
 	<link rel="icon" href="pacman_logo_transparent.png" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/9bbb06c09c.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="styles.css">
 
-	<!-- <script src="3D_vector_space.js"></script> -->
 	<script defer src="js/classes.js"></script>
 	<script defer src="js/draw.js"></script>
 	<script defer src="js/main.js"></script>
 </head>
 <body>
-	<h1>Wireframe Viewer</h1>
-	<canvas></canvas>
-	<div id="buttons">
-		<button id="rotate-button">rotate</button>
-		<audio id="clickSound" src="click.wav" preload="auto"></audio>
-		<!-- <button id="reset-button">reset</button> -->
-		<!-- <button id="clear-button">clear</button> -->
+	<div id="first-page">
+		<h1>Wireframe Viewer</h1>
+		<canvas></canvas>
+		<div id="buttons">
+			<button id="rotate-button">rotate</button>
+			<audio id="clickSound" src="click.wav" preload="auto"></audio>
+		</div>
+		<div id="down-icon">
+			<i class="fa-solid fa-chevron-down"></i>
+		</div>		
 	</div>
-	<p>For more info: <a href="https://github.com/erzloh/3D-Vector-Space-Visualization" target="_blank">GitHub repo</a></p>
+	<div id="second-page">
+		<div id="instructions">
+			<p>Hold left-click and move the mouse to rotate the wireframe.</p>
+			<p>Scroll with the mouse wheel to zoom in and out.</p>
+		</div>
+		<p id="input-text">Input a wireframe object:</p>
+		<textarea type="text">0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
+0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
+0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
+0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
+0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0</textarea>
+		<button id="submit-button">submit</button>
+		<p id="info">For more info: <a href="https://github.com/erzloh/3D-Vector-Space-Visualization" target="_blank">GitHub repo</a></p>
+	</div>
 	<footer>
 		&copy; 2023 Eric Holzer. All Rights Reserved.
   	</footer>
