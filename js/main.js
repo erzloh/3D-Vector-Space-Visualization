@@ -199,6 +199,7 @@ canvas.addEventListener('touchstart', function(e) {
       e.touches[0].pageY - e.touches[1].pageY
     );
   }
+  e.preventDefault();
 });
 
 canvas.addEventListener('touchmove', function(e) {
@@ -215,6 +216,7 @@ canvas.addEventListener('touchmove', function(e) {
     } else {
       zoomOut();
     }
+	e.preventDefault();
   }
 });
 
