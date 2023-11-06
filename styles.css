@@ -177,7 +177,7 @@ i {
 	}
 }
 
-@media (max-height: 700px) {
+@media (max-height: 700px) and (min-width: 500px) {
 	body {
 		margin-left: 30%;
 		margin-right: 30%;
