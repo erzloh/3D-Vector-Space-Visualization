@@ -167,3 +167,33 @@ function animate() {
 	vs.draw();
 }
 animate();
+
+// ------------------------------ Get random wireframe ------------------------------
+const wireframeObjects = [
+	"10-2.fdf",
+	"basictest.fdf",
+	"mars.fdf",
+	"pyra.fdf",
+	"10-70.fdf",
+	"pentenegpos.fdf",
+	"pyramide.fdf",
+	"100-6.fdf",
+	"pentenegpos_eric.fdf",
+	"20-60.fdf",
+	"elem.fdf",
+	"plat.fdf",
+	"42.fdf",
+	"elem2.fdf",
+	"pnp_flat.fdf",
+	"50-4.fdf",
+	"pylone.fdf"
+  ];
+  
+async function getRandomWireframe() {
+	const randomIndex = Math.floor(Math.random() * wireframeObjects.length);
+	const randomWireframe = wireframeObjects[randomIndex];
+
+	const response = await fetch('maps/' + randomWireframe);
+	const data = await response.text();
+	return data;
+}

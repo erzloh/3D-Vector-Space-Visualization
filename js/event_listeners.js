@@ -192,8 +192,17 @@ submitButton.addEventListener('click', function() {
 textarea.addEventListener("input", function(event) {
 	const inputText = event.target.value;
 	const filteredText = inputText.replace(/[^0-9\s\n-]/g, '');
+	// filteredText = removeWhiteSpace(filteredText);
 	event.target.value = filteredText;
   });
+
+  // Remove whitespacs from each line
+  function removeWhiteSpace(string) {
+	const splitStringArr = string.split('\n');
+	const trimmedStringArr = splitStringArr.map(line => line.trimRight());
+	const trimmedString = trimmedStringArr.join('\n');
+	return trimmedString.trimRight();
+  }
   
 
   document.getElementById("down-icon").addEventListener("click", function() {
@@ -201,15 +210,18 @@ textarea.addEventListener("input", function(event) {
 	document.querySelector('#second-page').scrollIntoView({ behavior: "smooth" });
   });
 
-  randomButton.addEventListener('click', function() {
+  randomButton.addEventListener('click', async function() {
 	clickSound.volume = 0.05;
 	clickSound.play();
 	window.scrollTo(0, 0);
 
 	vs.clearVectorSpace();
 	
-	const randomWireframe = generateRandomWireframe();
+	let randomWireframe = await getRandomWireframe();
+	randomWireframe = randomWireframe.replace(/[^0-9\s\n-]/g, '');
+	randomWireframe = removeWhiteSpace(randomWireframe);
 	textarea.value = randomWireframe;
+	console.log(randomWireframe);
 	vs.addWireframe(randomWireframe);
 	
 	// Isometric projection Matrices
