@@ -148,6 +148,7 @@ textarea {
 	align-items: center;
 	/* margin: 64px; */
 	animation: fallFadeIn 4s ease-in-out;
+	/* margin-bottom: 64px; */
 	
 }
 
@@ -177,7 +178,7 @@ i {
 	}
 }
 
-@media (max-height: 700px) and (min-width: 500px) {
+@media (max-height: 700px) and (min-width: 700px) {
 	body {
 		margin-left: 30%;
 		margin-right: 30%;
