@@ -72,6 +72,8 @@ button:hover {
 button:active {
 	transform: translateY(4px) translateX(2px);
 	box-shadow: 0 0 0 0 black;
+  	background-color: transparent;
+  	outline: none;
 }
 
 p {
@@ -171,10 +173,26 @@ i {
 	margin-top: 64px;
 }
 
+.computer {
+	display: block;
+}
+
+.mobile {
+	display: none;
+}
+
 @media (max-width: 768px) {
 	body {
 		margin-left: 5%;
 		margin-right: 5%;
+	}
+
+	.computer {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
 	}
 }
 
