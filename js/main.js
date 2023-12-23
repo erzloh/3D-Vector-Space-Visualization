@@ -154,17 +154,27 @@ vs.draw();
 let angle = 0.015; // angle in radians
 let rotate = false;
 
-// This function is called continuously
-function animate() {
-	requestAnimationFrame(animate);
-	c.clearRect(0, 0, canvas.width, canvas.height);
+let fps = 60;
+let interval = 1000 / fps;
+let lastFrameTime = Date.now();
 
-	if (rotate) {
-		vs.matrices = [];
-		vs.addMatrix(getYAxisRotMat(angle));
-		vs.applyMatrices();
-	}
-	vs.draw();
+function animate() {
+    requestAnimationFrame(animate);
+    let now = Date.now();
+    let elapsed = now - lastFrameTime;
+
+    if (elapsed > interval) {
+        lastFrameTime = now - (elapsed % interval);
+
+        c.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (rotate) {
+            vs.matrices = [];
+            vs.addMatrix(getYAxisRotMat(angle));
+            vs.applyMatrices();
+        }
+        vs.draw();
+    }
 }
 animate();
 
