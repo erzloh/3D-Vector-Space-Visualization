@@ -2,7 +2,7 @@
 
 Visualize 3D wireframes in a simple, interactive viewer.
 
-![Description of GIF](demo.gif)
+![Description of GIF](wireframe.gif)
 
 I made this project alongside my learning of Linear Algebra to put into practice what I learned from theory. For those interested in the topic, I can't recommend enough the [Essence of Linear Algebra video series](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=zM29JPzZTQTrPIRR) from 3Blue1Brown.
 
